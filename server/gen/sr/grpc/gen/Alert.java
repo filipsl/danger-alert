@@ -73,11 +73,11 @@ private static final long serialVersionUID = 0L;
           }
           case 34: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              affectedCities_ = new java.util.ArrayList<sr.grpc.gen.Alert.cityLevel>();
+              affectedCities_ = new java.util.ArrayList<sr.grpc.gen.Alert.CityLevel>();
               mutable_bitField0_ |= 0x00000001;
             }
             affectedCities_.add(
-                input.readMessage(sr.grpc.gen.Alert.cityLevel.parser(), extensionRegistry));
+                input.readMessage(sr.grpc.gen.Alert.CityLevel.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -115,8 +115,8 @@ private static final long serialVersionUID = 0L;
             sr.grpc.gen.Alert.class, sr.grpc.gen.Alert.Builder.class);
   }
 
-  public interface cityLevelOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:alert.Alert.cityLevel)
+  public interface CityLevelOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:alert.Alert.CityLevel)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -143,18 +143,18 @@ private static final long serialVersionUID = 0L;
     sr.grpc.gen.SeverityLevel getSeverityLevel();
   }
   /**
-   * Protobuf type {@code alert.Alert.cityLevel}
+   * Protobuf type {@code alert.Alert.CityLevel}
    */
-  public  static final class cityLevel extends
+  public  static final class CityLevel extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:alert.Alert.cityLevel)
-      cityLevelOrBuilder {
+      // @@protoc_insertion_point(message_implements:alert.Alert.CityLevel)
+      CityLevelOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use cityLevel.newBuilder() to construct.
-    private cityLevel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use CityLevel.newBuilder() to construct.
+    private CityLevel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private cityLevel() {
+    private CityLevel() {
       cityName_ = "";
       severityLevel_ = 0;
     }
@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new cityLevel();
+      return new CityLevel();
     }
 
     @java.lang.Override
@@ -171,7 +171,7 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private cityLevel(
+    private CityLevel(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -222,15 +222,15 @@ private static final long serialVersionUID = 0L;
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_cityLevel_descriptor;
+      return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_CityLevel_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_cityLevel_fieldAccessorTable
+      return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_CityLevel_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sr.grpc.gen.Alert.cityLevel.class, sr.grpc.gen.Alert.cityLevel.Builder.class);
+              sr.grpc.gen.Alert.CityLevel.class, sr.grpc.gen.Alert.CityLevel.Builder.class);
     }
 
     public static final int CITYNAME_FIELD_NUMBER = 1;
@@ -334,10 +334,10 @@ private static final long serialVersionUID = 0L;
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof sr.grpc.gen.Alert.cityLevel)) {
+      if (!(obj instanceof sr.grpc.gen.Alert.CityLevel)) {
         return super.equals(obj);
       }
-      sr.grpc.gen.Alert.cityLevel other = (sr.grpc.gen.Alert.cityLevel) obj;
+      sr.grpc.gen.Alert.CityLevel other = (sr.grpc.gen.Alert.CityLevel) obj;
 
       if (!getCityName()
           .equals(other.getCityName())) return false;
@@ -362,69 +362,69 @@ private static final long serialVersionUID = 0L;
       return hash;
     }
 
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(byte[] data)
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(java.io.InputStream input)
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseDelimitedFrom(java.io.InputStream input)
+    public static sr.grpc.gen.Alert.CityLevel parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseDelimitedFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sr.grpc.gen.Alert.cityLevel parseFrom(
+    public static sr.grpc.gen.Alert.CityLevel parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(sr.grpc.gen.Alert.cityLevel prototype) {
+    public static Builder newBuilder(sr.grpc.gen.Alert.CityLevel prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -453,26 +453,26 @@ private static final long serialVersionUID = 0L;
       return builder;
     }
     /**
-     * Protobuf type {@code alert.Alert.cityLevel}
+     * Protobuf type {@code alert.Alert.CityLevel}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:alert.Alert.cityLevel)
-        sr.grpc.gen.Alert.cityLevelOrBuilder {
+        // @@protoc_insertion_point(builder_implements:alert.Alert.CityLevel)
+        sr.grpc.gen.Alert.CityLevelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_cityLevel_descriptor;
+        return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_CityLevel_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_cityLevel_fieldAccessorTable
+        return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_CityLevel_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                sr.grpc.gen.Alert.cityLevel.class, sr.grpc.gen.Alert.cityLevel.Builder.class);
+                sr.grpc.gen.Alert.CityLevel.class, sr.grpc.gen.Alert.CityLevel.Builder.class);
       }
 
-      // Construct using sr.grpc.gen.Alert.cityLevel.newBuilder()
+      // Construct using sr.grpc.gen.Alert.CityLevel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -500,17 +500,17 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_cityLevel_descriptor;
+        return sr.grpc.gen.DangerAlert.internal_static_alert_Alert_CityLevel_descriptor;
       }
 
       @java.lang.Override
-      public sr.grpc.gen.Alert.cityLevel getDefaultInstanceForType() {
-        return sr.grpc.gen.Alert.cityLevel.getDefaultInstance();
+      public sr.grpc.gen.Alert.CityLevel getDefaultInstanceForType() {
+        return sr.grpc.gen.Alert.CityLevel.getDefaultInstance();
       }
 
       @java.lang.Override
-      public sr.grpc.gen.Alert.cityLevel build() {
-        sr.grpc.gen.Alert.cityLevel result = buildPartial();
+      public sr.grpc.gen.Alert.CityLevel build() {
+        sr.grpc.gen.Alert.CityLevel result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -518,8 +518,8 @@ private static final long serialVersionUID = 0L;
       }
 
       @java.lang.Override
-      public sr.grpc.gen.Alert.cityLevel buildPartial() {
-        sr.grpc.gen.Alert.cityLevel result = new sr.grpc.gen.Alert.cityLevel(this);
+      public sr.grpc.gen.Alert.CityLevel buildPartial() {
+        sr.grpc.gen.Alert.CityLevel result = new sr.grpc.gen.Alert.CityLevel(this);
         result.cityName_ = cityName_;
         result.severityLevel_ = severityLevel_;
         onBuilt();
@@ -560,16 +560,16 @@ private static final long serialVersionUID = 0L;
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sr.grpc.gen.Alert.cityLevel) {
-          return mergeFrom((sr.grpc.gen.Alert.cityLevel)other);
+        if (other instanceof sr.grpc.gen.Alert.CityLevel) {
+          return mergeFrom((sr.grpc.gen.Alert.CityLevel)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(sr.grpc.gen.Alert.cityLevel other) {
-        if (other == sr.grpc.gen.Alert.cityLevel.getDefaultInstance()) return this;
+      public Builder mergeFrom(sr.grpc.gen.Alert.CityLevel other) {
+        if (other == sr.grpc.gen.Alert.CityLevel.getDefaultInstance()) return this;
         if (!other.getCityName().isEmpty()) {
           cityName_ = other.cityName_;
           onChanged();
@@ -592,11 +592,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        sr.grpc.gen.Alert.cityLevel parsedMessage = null;
+        sr.grpc.gen.Alert.CityLevel parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (sr.grpc.gen.Alert.cityLevel) e.getUnfinishedMessage();
+          parsedMessage = (sr.grpc.gen.Alert.CityLevel) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -746,41 +746,41 @@ private static final long serialVersionUID = 0L;
       }
 
 
-      // @@protoc_insertion_point(builder_scope:alert.Alert.cityLevel)
+      // @@protoc_insertion_point(builder_scope:alert.Alert.CityLevel)
     }
 
-    // @@protoc_insertion_point(class_scope:alert.Alert.cityLevel)
-    private static final sr.grpc.gen.Alert.cityLevel DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:alert.Alert.CityLevel)
+    private static final sr.grpc.gen.Alert.CityLevel DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new sr.grpc.gen.Alert.cityLevel();
+      DEFAULT_INSTANCE = new sr.grpc.gen.Alert.CityLevel();
     }
 
-    public static sr.grpc.gen.Alert.cityLevel getDefaultInstance() {
+    public static sr.grpc.gen.Alert.CityLevel getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<cityLevel>
-        PARSER = new com.google.protobuf.AbstractParser<cityLevel>() {
+    private static final com.google.protobuf.Parser<CityLevel>
+        PARSER = new com.google.protobuf.AbstractParser<CityLevel>() {
       @java.lang.Override
-      public cityLevel parsePartialFrom(
+      public CityLevel parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new cityLevel(input, extensionRegistry);
+        return new CityLevel(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<cityLevel> parser() {
+    public static com.google.protobuf.Parser<CityLevel> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<cityLevel> getParserForType() {
+    public com.google.protobuf.Parser<CityLevel> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public sr.grpc.gen.Alert.cityLevel getDefaultInstanceForType() {
+    public sr.grpc.gen.Alert.CityLevel getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -878,36 +878,36 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AFFECTEDCITIES_FIELD_NUMBER = 4;
-  private java.util.List<sr.grpc.gen.Alert.cityLevel> affectedCities_;
+  private java.util.List<sr.grpc.gen.Alert.CityLevel> affectedCities_;
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  public java.util.List<sr.grpc.gen.Alert.cityLevel> getAffectedCitiesList() {
+  public java.util.List<sr.grpc.gen.Alert.CityLevel> getAffectedCitiesList() {
     return affectedCities_;
   }
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  public java.util.List<? extends sr.grpc.gen.Alert.cityLevelOrBuilder> 
+  public java.util.List<? extends sr.grpc.gen.Alert.CityLevelOrBuilder> 
       getAffectedCitiesOrBuilderList() {
     return affectedCities_;
   }
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
   public int getAffectedCitiesCount() {
     return affectedCities_.size();
   }
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  public sr.grpc.gen.Alert.cityLevel getAffectedCities(int index) {
+  public sr.grpc.gen.Alert.CityLevel getAffectedCities(int index) {
     return affectedCities_.get(index);
   }
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  public sr.grpc.gen.Alert.cityLevelOrBuilder getAffectedCitiesOrBuilder(
+  public sr.grpc.gen.Alert.CityLevelOrBuilder getAffectedCitiesOrBuilder(
       int index) {
     return affectedCities_.get(index);
   }
@@ -1508,22 +1508,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<sr.grpc.gen.Alert.cityLevel> affectedCities_ =
+    private java.util.List<sr.grpc.gen.Alert.CityLevel> affectedCities_ =
       java.util.Collections.emptyList();
     private void ensureAffectedCitiesIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        affectedCities_ = new java.util.ArrayList<sr.grpc.gen.Alert.cityLevel>(affectedCities_);
+        affectedCities_ = new java.util.ArrayList<sr.grpc.gen.Alert.CityLevel>(affectedCities_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        sr.grpc.gen.Alert.cityLevel, sr.grpc.gen.Alert.cityLevel.Builder, sr.grpc.gen.Alert.cityLevelOrBuilder> affectedCitiesBuilder_;
+        sr.grpc.gen.Alert.CityLevel, sr.grpc.gen.Alert.CityLevel.Builder, sr.grpc.gen.Alert.CityLevelOrBuilder> affectedCitiesBuilder_;
 
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public java.util.List<sr.grpc.gen.Alert.cityLevel> getAffectedCitiesList() {
+    public java.util.List<sr.grpc.gen.Alert.CityLevel> getAffectedCitiesList() {
       if (affectedCitiesBuilder_ == null) {
         return java.util.Collections.unmodifiableList(affectedCities_);
       } else {
@@ -1531,7 +1531,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public int getAffectedCitiesCount() {
       if (affectedCitiesBuilder_ == null) {
@@ -1541,9 +1541,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public sr.grpc.gen.Alert.cityLevel getAffectedCities(int index) {
+    public sr.grpc.gen.Alert.CityLevel getAffectedCities(int index) {
       if (affectedCitiesBuilder_ == null) {
         return affectedCities_.get(index);
       } else {
@@ -1551,10 +1551,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder setAffectedCities(
-        int index, sr.grpc.gen.Alert.cityLevel value) {
+        int index, sr.grpc.gen.Alert.CityLevel value) {
       if (affectedCitiesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1568,10 +1568,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder setAffectedCities(
-        int index, sr.grpc.gen.Alert.cityLevel.Builder builderForValue) {
+        int index, sr.grpc.gen.Alert.CityLevel.Builder builderForValue) {
       if (affectedCitiesBuilder_ == null) {
         ensureAffectedCitiesIsMutable();
         affectedCities_.set(index, builderForValue.build());
@@ -1582,9 +1582,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public Builder addAffectedCities(sr.grpc.gen.Alert.cityLevel value) {
+    public Builder addAffectedCities(sr.grpc.gen.Alert.CityLevel value) {
       if (affectedCitiesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1598,10 +1598,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder addAffectedCities(
-        int index, sr.grpc.gen.Alert.cityLevel value) {
+        int index, sr.grpc.gen.Alert.CityLevel value) {
       if (affectedCitiesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1615,10 +1615,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder addAffectedCities(
-        sr.grpc.gen.Alert.cityLevel.Builder builderForValue) {
+        sr.grpc.gen.Alert.CityLevel.Builder builderForValue) {
       if (affectedCitiesBuilder_ == null) {
         ensureAffectedCitiesIsMutable();
         affectedCities_.add(builderForValue.build());
@@ -1629,10 +1629,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder addAffectedCities(
-        int index, sr.grpc.gen.Alert.cityLevel.Builder builderForValue) {
+        int index, sr.grpc.gen.Alert.CityLevel.Builder builderForValue) {
       if (affectedCitiesBuilder_ == null) {
         ensureAffectedCitiesIsMutable();
         affectedCities_.add(index, builderForValue.build());
@@ -1643,10 +1643,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder addAllAffectedCities(
-        java.lang.Iterable<? extends sr.grpc.gen.Alert.cityLevel> values) {
+        java.lang.Iterable<? extends sr.grpc.gen.Alert.CityLevel> values) {
       if (affectedCitiesBuilder_ == null) {
         ensureAffectedCitiesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1658,7 +1658,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder clearAffectedCities() {
       if (affectedCitiesBuilder_ == null) {
@@ -1671,7 +1671,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
     public Builder removeAffectedCities(int index) {
       if (affectedCitiesBuilder_ == null) {
@@ -1684,16 +1684,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public sr.grpc.gen.Alert.cityLevel.Builder getAffectedCitiesBuilder(
+    public sr.grpc.gen.Alert.CityLevel.Builder getAffectedCitiesBuilder(
         int index) {
       return getAffectedCitiesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public sr.grpc.gen.Alert.cityLevelOrBuilder getAffectedCitiesOrBuilder(
+    public sr.grpc.gen.Alert.CityLevelOrBuilder getAffectedCitiesOrBuilder(
         int index) {
       if (affectedCitiesBuilder_ == null) {
         return affectedCities_.get(index);  } else {
@@ -1701,9 +1701,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public java.util.List<? extends sr.grpc.gen.Alert.cityLevelOrBuilder> 
+    public java.util.List<? extends sr.grpc.gen.Alert.CityLevelOrBuilder> 
          getAffectedCitiesOrBuilderList() {
       if (affectedCitiesBuilder_ != null) {
         return affectedCitiesBuilder_.getMessageOrBuilderList();
@@ -1712,33 +1712,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public sr.grpc.gen.Alert.cityLevel.Builder addAffectedCitiesBuilder() {
+    public sr.grpc.gen.Alert.CityLevel.Builder addAffectedCitiesBuilder() {
       return getAffectedCitiesFieldBuilder().addBuilder(
-          sr.grpc.gen.Alert.cityLevel.getDefaultInstance());
+          sr.grpc.gen.Alert.CityLevel.getDefaultInstance());
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public sr.grpc.gen.Alert.cityLevel.Builder addAffectedCitiesBuilder(
+    public sr.grpc.gen.Alert.CityLevel.Builder addAffectedCitiesBuilder(
         int index) {
       return getAffectedCitiesFieldBuilder().addBuilder(
-          index, sr.grpc.gen.Alert.cityLevel.getDefaultInstance());
+          index, sr.grpc.gen.Alert.CityLevel.getDefaultInstance());
     }
     /**
-     * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+     * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
      */
-    public java.util.List<sr.grpc.gen.Alert.cityLevel.Builder> 
+    public java.util.List<sr.grpc.gen.Alert.CityLevel.Builder> 
          getAffectedCitiesBuilderList() {
       return getAffectedCitiesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        sr.grpc.gen.Alert.cityLevel, sr.grpc.gen.Alert.cityLevel.Builder, sr.grpc.gen.Alert.cityLevelOrBuilder> 
+        sr.grpc.gen.Alert.CityLevel, sr.grpc.gen.Alert.CityLevel.Builder, sr.grpc.gen.Alert.CityLevelOrBuilder> 
         getAffectedCitiesFieldBuilder() {
       if (affectedCitiesBuilder_ == null) {
         affectedCitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            sr.grpc.gen.Alert.cityLevel, sr.grpc.gen.Alert.cityLevel.Builder, sr.grpc.gen.Alert.cityLevelOrBuilder>(
+            sr.grpc.gen.Alert.CityLevel, sr.grpc.gen.Alert.CityLevel.Builder, sr.grpc.gen.Alert.CityLevelOrBuilder>(
                 affectedCities_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),

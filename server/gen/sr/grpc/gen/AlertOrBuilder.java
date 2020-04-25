@@ -43,26 +43,26 @@ public interface AlertOrBuilder extends
   sr.grpc.gen.DangerType getDangerType();
 
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  java.util.List<sr.grpc.gen.Alert.cityLevel> 
+  java.util.List<sr.grpc.gen.Alert.CityLevel> 
       getAffectedCitiesList();
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  sr.grpc.gen.Alert.cityLevel getAffectedCities(int index);
+  sr.grpc.gen.Alert.CityLevel getAffectedCities(int index);
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
   int getAffectedCitiesCount();
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  java.util.List<? extends sr.grpc.gen.Alert.cityLevelOrBuilder> 
+  java.util.List<? extends sr.grpc.gen.Alert.CityLevelOrBuilder> 
       getAffectedCitiesOrBuilderList();
   /**
-   * <code>repeated .alert.Alert.cityLevel affectedCities = 4;</code>
+   * <code>repeated .alert.Alert.CityLevel affectedCities = 4;</code>
    */
-  sr.grpc.gen.Alert.cityLevelOrBuilder getAffectedCitiesOrBuilder(
+  sr.grpc.gen.Alert.CityLevelOrBuilder getAffectedCitiesOrBuilder(
       int index);
 }

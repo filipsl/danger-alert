@@ -35,10 +35,10 @@ public final class DangerAlert {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_alert_Alert_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_alert_Alert_cityLevel_descriptor;
+    internal_static_alert_Alert_CityLevel_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_alert_Alert_cityLevel_fieldAccessorTable;
+      internal_static_alert_Alert_CityLevel_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_alert_Empty_descriptor;
   static final 
@@ -61,7 +61,7 @@ public final class DangerAlert {
       "ertFilter\"\320\001\n\005Alert\022\021\n\tstateName\030\001 \001(\t\022\021" +
       "\n\tstateCode\030\002 \001(\t\022%\n\ndangerType\030\003 \001(\0162\021." +
       "alert.DangerType\022.\n\016affectedCities\030\004 \003(\013" +
-      "2\026.alert.Alert.cityLevel\032J\n\tcityLevel\022\020\n" +
+      "2\026.alert.Alert.CityLevel\032J\n\tCityLevel\022\020\n" +
       "\010cityName\030\001 \001(\t\022+\n\rseverityLevel\030\002 \001(\0162\024" +
       ".alert.SeverityLevel\"\007\n\005Empty*D\n\nDangerT" +
       "ype\022\r\n\tHURRICANE\020\000\022\t\n\005FLOOD\020\001\022\016\n\nEARTHQU" +
@@ -100,11 +100,11 @@ public final class DangerAlert {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_alert_Alert_descriptor,
         new java.lang.String[] { "StateName", "StateCode", "DangerType", "AffectedCities", });
-    internal_static_alert_Alert_cityLevel_descriptor =
+    internal_static_alert_Alert_CityLevel_descriptor =
       internal_static_alert_Alert_descriptor.getNestedTypes().get(0);
-    internal_static_alert_Alert_cityLevel_fieldAccessorTable = new
+    internal_static_alert_Alert_CityLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_alert_Alert_cityLevel_descriptor,
+        internal_static_alert_Alert_CityLevel_descriptor,
         new java.lang.String[] { "CityName", "SeverityLevel", });
     internal_static_alert_Empty_descriptor =
       getDescriptor().getMessageTypes().get(4);
