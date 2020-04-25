@@ -1,8 +1,13 @@
+import os
+import sys
+from random import randint
+from time import sleep
+
 import grpc
 import re
 
 from gen.danger_alert_pb2_grpc import AlertServiceStub
-from gen.danger_alert_pb2 import DangerType, Empty, SubscriptionParams, StateAlertFilter
+from gen.danger_alert_pb2 import DangerType, Empty, SubscriptionParams, StateAlertFilter, Alert, SeverityLevel
 
 import logging
 
@@ -67,25 +72,50 @@ class AlertClient:
 
         self.make_subs_request_message()
 
+    def handle_alert(self, alert):
+        alert_string = ' '.join(
+            ['\nNEW ALERT:', DangerType.Name(alert.dangerType) + '!', 'State:', alert.stateName, '\n'])
+        cities_string = ''
+        for city_level in alert.affectedCities:
+            cities_string = ' '.join([cities_string, '  City: ', city_level.cityName + ';', 'Severity level: ',
+                                      SeverityLevel.Name(city_level.severityLevel)]) + '\n'
+        logging.info(alert_string + cities_string)
+
     def run(self):
         logging.info('Starting alert client...')
-        with grpc.insecure_channel('localhost:50051') as channel:
+        with grpc.insecure_channel(
+                target='localhost:50051',
+                options=[('grpc.keepalive_time_ms', 30000)]) as channel:
             stub = AlertServiceStub(channel)
+            reconnection_time = 3.0
+            while True:
+                try:
+                    if not self.available_codes:
+                        codes = stub.GetCodes(Empty())
 
-            logging.info('Requesting state codes available for subscription...')
-            codes = stub.GetCodes(Empty())
-            logging.info('Got available state codes!')
+                        for code in codes.stateCodes:
+                            self.available_codes.add(code)
 
-            for code in codes.stateCodes:
-                self.available_codes.add(code)
+                        self.define_subscription()
 
-            self.define_subscription()
+                    for alert in stub.GetAlerts(self.subs_params_message):
+                        self.handle_alert(alert)
+                        reconnection_time = 1.0
 
-            for alert in stub.GetAlerts(self.subs_params_message):
-                print(alert, 'Got alert')
+                except grpc.RpcError:
+                    reconnection_time *= 1 + randint(1, 10) / 100
+                    logging.warning('Attempting reconnection after {:.2f} s...'.format(reconnection_time))
+                    sleep(reconnection_time)
 
 
 if __name__ == '__main__':
-    logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %H:%M:%S', level=logging.DEBUG)
-    alert_client = AlertClient()
-    alert_client.run()
+    try:
+        logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %H:%M:%S', level=logging.DEBUG)
+        alert_client = AlertClient()
+        alert_client.run()
+    except KeyboardInterrupt:
+        print('Alert client shut down')
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)

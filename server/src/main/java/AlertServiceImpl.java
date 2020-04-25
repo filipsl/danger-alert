@@ -1,5 +1,6 @@
 import io.grpc.stub.ServerCallStreamObserver;
 import io.grpc.stub.StreamObserver;
+import model.Client;
 import model.State;
 import sr.grpc.gen.*;
 import sr.grpc.gen.AlertServiceGrpc.AlertServiceImplBase;
@@ -14,7 +15,7 @@ public class AlertServiceImpl extends AlertServiceImplBase {
 
     @Override
     public void getCodes(Empty request, StreamObserver<StateCodes> responseObserver) {
-        System.out.println("Got state codes request");
+        AlertServer.logger.info("Got state codes request\n");
 
         StateCodes.Builder stateCodesBuilder = StateCodes.newBuilder();
 
@@ -30,23 +31,16 @@ public class AlertServiceImpl extends AlertServiceImplBase {
 
     @Override
     public void getAlerts(SubscriptionParams request, StreamObserver<Alert> responseObserver) {
-
-        System.out.println("Started new subscription");
         ServerCallStreamObserver<Alert> obs = (ServerCallStreamObserver<Alert>) responseObserver;
 
+        Client client = new Client(request, responseObserver);
+
         obs.setOnCancelHandler(() -> {
-            System.err.println();
-            System.out.println("Client cancelled");
+            alertServer.getClients().remove(client);
+            AlertServer.logger.info("Client disconnected\n");
         });
 
-
-        Alert alert = Alert.newBuilder().build();
-
-        obs.onNext(alert);
-        obs.onNext(alert);
-        obs.onNext(alert);
-
-//        responseObserver.onCompleted();
-
+        alertServer.getClients().add(client);
+        AlertServer.logger.info("Started new subscription\n");
     }
 }

@@ -1,40 +1,36 @@
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import io.grpc.stub.StreamObserver;
 import model.Client;
 import model.State;
 import sr.grpc.gen.Alert;
-import sr.grpc.gen.AlertOrBuilder;
-import sr.grpc.gen.DangerType;
-import sr.grpc.gen.SeverityLevel;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Logger;
 
 public class AlertServer {
 
-    private static final Logger logger = Logger.getLogger(AlertServer.class.getName());
+    public static final Logger logger = Logger.getLogger(AlertServer.class.getName());
 
     private int port = 50051;
     private Server server;
     private List<State> states = new LinkedList<>();
-    private List<Client> clients = new LinkedList<>();
+    private List<Client> clients = new CopyOnWriteArrayList<>();
+    private AlertGenerator alertGenerator;
 
     private void start() throws IOException {
 
         setStates();
-
+        alertGenerator = new AlertGenerator(states);
         server = ServerBuilder.forPort(port)
                 .addService(new AlertServiceImpl(this))
                 .build()
                 .start();
         logger.info("Server started, listening on " + port);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            // Use stderr here since the logger may have been reset by its JVM shutdown hook.
-            System.err.println("*** shutting down gRPC server since JVM is shutting down");
             AlertServer.this.stop();
-            System.err.println("*** server shut down");
+            System.err.println("Alert server shut down");
         }));
     }
 
@@ -44,14 +40,6 @@ public class AlertServer {
         }
     }
 
-    /**
-     * Await termination on the main thread since the grpc library uses daemon threads.
-     */
-    private void blockUntilShutdown() throws InterruptedException {
-        if (server != null) {
-            server.awaitTermination();
-        }
-    }
 
     private void setStates() {
         State or = new State("Oregon", "OR", Arrays.asList("Eugene", "Portland", "New Port"));
@@ -70,39 +58,33 @@ public class AlertServer {
         return clients;
     }
 
-    public Alert generateAlert() {
-
-        Random rand = new Random();
-
-        Collections.shuffle(states);
-        State state = states.get(0);
-
-        Alert.Builder alertBuilder = Alert.newBuilder();
-        alertBuilder.setStateName(state.getStateName());
-        alertBuilder.setStateCode(state.getStateCode());
-        alertBuilder.setDangerType(DangerType.forNumber(rand.nextInt(4)));
-
-        Collections.shuffle(state.getCities());
-
-        int n = Math.min(rand.nextInt(state.getCities().size()), 1);
-        for (int i = 0; i < n; i++) {
-            Alert.CityLevel cityLevel = Alert.CityLevel.newBuilder()
-                    .setCityName(state.getCities().get(i))
-                    .setSeverityLevel(SeverityLevel.forNumber(rand.nextInt(3)))
-                    .build();
-            alertBuilder.addAffectedCities(cityLevel);
+    public void printAvailableStates() {
+        System.out.println("Alerts available for selected states:");
+        for (State state : states) {
+            System.out.println(" " + state.getStateName());
         }
-
-        return alertBuilder.build();
     }
 
+    public void sendAlerts() throws InterruptedException {
+        Random rand = new Random();
 
-    /**
-     * Main launches the server from the command line.
-     */
+        while (true) {
+            Alert alert = this.alertGenerator.generateAlert();
+            logger.info("New alert generated\n" + "   state: " + alert.getStateName()
+                    + "; type: " + alert.getDangerType() + "\n");
+            Thread.sleep(((rand.nextInt(2) + 1) * 1000));
+            for (Client c : clients) {
+                if (c.acceptsAlert(alert)) {
+                    c.getResponseObserver().onNext(alert);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException, InterruptedException {
         final AlertServer server = new AlertServer();
         server.start();
-        server.blockUntilShutdown();
+        server.printAvailableStates();
+        server.sendAlerts();
     }
 }

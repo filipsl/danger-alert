@@ -2,6 +2,7 @@ package model;
 
 import io.grpc.stub.StreamObserver;
 import sr.grpc.gen.Alert;
+import sr.grpc.gen.StateAlertFilter;
 import sr.grpc.gen.SubscriptionParams;
 
 import java.util.Objects;
@@ -15,12 +16,18 @@ public class Client {
         this.responseObserver = responseObserver;
     }
 
-    public SubscriptionParams getRequest() {
-        return request;
-    }
-
     public StreamObserver<Alert> getResponseObserver() {
         return responseObserver;
+    }
+
+    public boolean acceptsAlert(Alert alert) {
+        for (StateAlertFilter alertFilter : request.getAlertFiltersList()) {
+            if (alert.getStateCode().equals(alertFilter.getStateCode())) {
+                if (alertFilter.getDangerTypesList().contains(alert.getDangerType()))
+                    return true;
+            }
+        }
+        return false;
     }
 
     @Override
