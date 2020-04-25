@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "sr.grpc.gen";
+option java_outer_classname = "DangerAlert";
+
+package alert;
+
+enum DangerType {
+  HURRICANE = 0;
+  FLOOD = 1;
+  EARTHQUAKE = 2;
+  BLIZZARD = 3;
+}
+
+enum SeverityLevel {
+  LOW = 0;
+  MEDIUM = 1;
+  HIGH = 2;
+}
+
+message StateCodes {
+  repeated string stateCodes = 1;
+}
+
+message StateAlertFilter {
+  string stateCode = 1;
+  repeated DangerType dangerTypes = 2;
+}
+
+
+message SubscriptionParams {
+  repeated StateAlertFilter alertFilters = 1;
+}
+
+
+message Alert {
+  string stateName = 1;
+  string stateCode = 2;
+  DangerType dangerType = 3;
+
+  message cityLevel{
+    string cityName = 1;
+    SeverityLevel severityLevel = 2;
+  }
+  repeated cityLevel affectedCities = 4;
+}
+
+message Empty {}
+
+service AlertService {
+  rpc GetCodes (Empty) returns (StateCodes) {}
+  rpc GetAlerts (SubscriptionParams) returns (stream Alert) {}
+}
+
