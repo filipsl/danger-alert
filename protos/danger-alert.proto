@@ -39,11 +39,11 @@ message Alert {
   string stateCode = 2;
   DangerType dangerType = 3;
 
-  message cityLevel{
+  message CityLevel{
     string cityName = 1;
     SeverityLevel severityLevel = 2;
   }
-  repeated cityLevel affectedCities = 4;
+  repeated CityLevel affectedCities = 4;
 }
 
 message Empty {}
