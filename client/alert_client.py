@@ -100,7 +100,7 @@ class AlertClient:
 
                     for alert in stub.GetAlerts(self.subs_params_message):
                         self.handle_alert(alert)
-                        reconnection_time = 1.0
+                        reconnection_time = 3.0
 
                 except grpc.RpcError:
                     reconnection_time *= 1 + randint(1, 10) / 100
