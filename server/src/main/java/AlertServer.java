@@ -70,9 +70,9 @@ public class AlertServer {
 
         while (true) {
             Alert alert = this.alertGenerator.generateAlert();
+            Thread.sleep(((rand.nextInt(2) + 1) * 1000));
             logger.info("New alert generated\n" + "   state: " + alert.getStateName()
                     + "; type: " + alert.getDangerType() + "\n");
-            Thread.sleep(((rand.nextInt(2) + 1) * 1000));
             for (Client c : clients) {
                 if (c.acceptsAlert(alert)) {
                     c.getResponseObserver().onNext(alert);
